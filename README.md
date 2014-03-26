@@ -1,6 +1,9 @@
 # Filterable
 
-Based on Justin Weiss' blog post [Search and Filter Rails Models Without Bloating Your Controller][http://www.justinweiss.com/blog/2014/02/17/search-and-filter-rails-models-without-bloating-your-controller/], Filterable allows you to create simple scopes, make a default list of filterable attributes, and enables you to replace MyModel.find.long.string.of.conditions with MyModel.filter. 
+Based on Justin Weiss' blog post [Search and Filter Rails Models Without Bloating Your Controller]
+[http://www.justinweiss.com/blog/2014/02/17/search-and-filter-rails-models-without-bloating-your-controller/],
+Filterable enables you to replace
+MyModel.find.long.string.of.conditions with MyModel.filter(list_of_scopes).
 
 ## Installation
 
@@ -18,25 +21,25 @@ Or install it yourself as:
 
 ## Usage
 
-MyModel.filter will use the default attribute list, and if any of those symbols are present in the params hash, the scopes will be added to the find call, and chained if multiple selectors are present in the URI.
+1. In your model, consider the attributes you want to match.
+2. Create scopes that match appropriately.
 
-In your model, consider the attributes you want to match.
-
-    filter_match :name, :category
-
-That will create these scopes:
-
-    scope name, -> { where(name: params['name']) }
+    scope name, -> { where(name: params['name']i, active: :true) }
     scope category, -> { where(category: params['category']) }
 
-The default filter attribute list will contain 'name' and 'category'. When the model's filter method is called, if either or both of those attributes exist in the URI, the corresponding scopes will be added to the model's scope chain.
+3. In your view, make sure these params will be sent on submit.
+4. In your controller, use ModelName.filter(params.slice(:name, :category))
 
-The default list can be overridden by passing a list to the filter method. Overrides can also refer to more complex scopes than Filterable creates automatically.
+## TODO
+
+* Add methods to create simple scopes
+* Keep a list of auto-created scopes to use as the default list if no params are passed to the #filter method
+* Add a method to refer to existing scopes, (add them to the default list)
 
 ## Similar Gems
 
 [FilterableSortable][https://github.com/gaar4ica/filterable_sortable]
-[has_scope][https://github.com/plataformatec/has_scope]:w
+[has_scope][https://github.com/plataformatec/has_scope]
 
 ## Contributing
 
