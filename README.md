@@ -23,7 +23,8 @@ Or install it yourself as:
 1. In your model, consider the attributes you want to match.
 2. Create scopes that match appropriately.
 
-    scope name, -> { where(name: params['name']i, active: :true) }
+    scope name, -> { where(name: params['name'], active: :true) }
+
     scope category, -> { where(category: params['category']) }
 
 3. In your view, make sure these params will be sent on submit.
