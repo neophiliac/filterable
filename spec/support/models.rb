@@ -7,7 +7,7 @@ end
 
 class BigFilterableModel < ActiveRecord::Base
   include Filterable
-  scope :attr1, -> { where attr1: 'S' }
-  scope :scoper, -> { where attr2: 'S' }
+  scope :attr1, ->(p) { where(attr1: p) }
+  scope :scoper, ->(p) { where(attr2: p) }
 end
 
