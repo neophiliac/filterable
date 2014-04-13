@@ -37,8 +37,9 @@ scope :category, ->(p) { where(category: p) }
 
 ## Similar Gems
 
-[FilterableSortable][https://github.com/gaar4ica/filterable_sortable]
-[has_scope][https://github.com/plataformatec/has_scope]
+* [FilterableSortable](https://github.com/gaar4ica/filterable_sortable)
+* [has_scope](https://github.com/plataformatec/has_scoper)
+* [periscope](https://github.com/laserlemon/periscope)
 
 ## Contributing
 
