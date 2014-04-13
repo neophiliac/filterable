@@ -1,5 +1,7 @@
 # Filterable
 
+[![Build Status](https://travis-ci.org/neophiliac/filterable.svg)](https://travis-ci.org/neophiliac/filterable)
+
 Based on Justin Weiss' blog post [Search and Filter Rails Models Without Bloating Your Controller](http://www.justinweiss.com/blog/2014/02/17/search-and-filter-rails-models-without-bloating-your-controller/),
 Filterable enables you to replace
 MyModel.find.long.string.of.conditions with MyModel.filter(list_of_scopes).
